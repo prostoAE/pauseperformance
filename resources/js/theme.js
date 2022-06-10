@@ -1,0 +1,3 @@
+$('#reservationdate').datetimepicker({
+    format: 'L'
+});

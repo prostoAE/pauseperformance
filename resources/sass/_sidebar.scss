@@ -1,0 +1,15 @@
+// Main sidebar
+.main-sidebar {
+    a.brand-link {
+        border-bottom: unset;
+
+        img.brand-image,
+        img.elevation-3 {
+            box-shadow: unset !important;
+        }
+    }
+
+    .sidebar {
+        float: left;
+    }
+}

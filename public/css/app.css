@@ -11286,3 +11286,13 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.main-sidebar a.brand-link {
+  border-bottom: unset;
+}
+.main-sidebar a.brand-link img.brand-image,
+.main-sidebar a.brand-link img.elevation-3 {
+  box-shadow: unset !important;
+}
+.main-sidebar .sidebar {
+  float: left;
+}

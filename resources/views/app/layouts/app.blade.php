@@ -8,6 +8,8 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="{{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
     <!-- Admin LTE styles -->
     <link rel="stylesheet" href="{{asset('css/adminlte.min.css')}}">
     <!-- Main styles -->
@@ -414,10 +416,16 @@
 
 <!-- jQuery -->
 <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+<!-- InputMask -->
+<script src="{{asset('plugins/moment/moment.min.js')}}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{{asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('js/app.js')}}"></script>
-<!-- App styles -->
+<!-- App scripts -->
 <script src="{{asset('js/adminlte.min.js')}}"></script>
+<!-- Theme scripts -->
+<script src="{{asset('js/theme.js')}}"></script>
 
 </body>
 </html>

@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('app.home');
 });
+
+Route::get('/settings/profile', function () {
+    return view('app.pages.settings.profile');
+})->name('user.profile');
