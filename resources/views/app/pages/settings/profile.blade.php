@@ -83,7 +83,8 @@
                                                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
                                                             <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate">
                                                             <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                                                <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
+                                                                <div class="input-group-text">
+                                                                    <i class="far fa-calendar-alt"></i></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -95,7 +96,8 @@
                                                         <input type="email" class="form-control" placeholder="Enter ...">
                                                     </div>
                                                 </div>
-                                            </div><div class="row">
+                                            </div>
+                                            <div class="row">
                                                 <div class="col-sm-6">
                                                     <!-- text input -->
                                                     <div class="form-group">
@@ -105,14 +107,29 @@
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label>Gender</label>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" id="male-chbx" type="radio" name="radio1" checked>
-                                                            <label class="form-check-label" for="male-chbx">Male</label>
+                                                        <label for="exampleInputFile">File input</label>
+                                                        <div class="input-group">
+                                                            <div class="custom-file">
+                                                                <input type="file" class="custom-file-input" id="exampleInputFile">
+                                                                <label class="custom-file-label" for="exampleInputFile">Choose
+                                                                    file
+                                                                </label>
+                                                            </div>
                                                         </div>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" id="female-chbx" type="radio" name="radio1">
-                                                            <label class="form-check-label" for="female-chbx">Female</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Gender</label>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" id="male-chbx" type="radio" name="radio1" checked>
+                                                                <label class="form-check-label" for="male-chbx">Male</label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" id="female-chbx" type="radio" name="radio1">
+                                                                <label class="form-check-label" for="female-chbx">Female</label>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

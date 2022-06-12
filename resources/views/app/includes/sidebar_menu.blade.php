@@ -12,8 +12,8 @@
                 <p>Activities</p>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+        <li class="nav-item {{Request::is('settings*') ? 'menu-is-opening menu-open' : '' }}">
+            <a href="../widgets.html" class="nav-link {{Request::is('settings*') ? 'active' : '' }}">
                 <i class="nav-icon fas fa-cogs"></i>
                 <p>
                     Settings
@@ -22,13 +22,13 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{route('user.profile')}}" class="nav-link">
+                    <a href="{{route('user.profile')}}" class="nav-link {{request()->routeIs('user.profile') ? 'active' : ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>User Profile</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../mailbox/compose.html" class="nav-link">
+                    <a href="{{route('user.roles')}}" class="nav-link  {{request()->routeIs('user.roles') ? 'active' : ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Roles and Permissions</p>
                     </a>

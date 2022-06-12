@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/settings/profile', function () {
     return view('app.pages.settings.profile');
 })->name('user.profile');
+
+Route::get('/settings/roles', function () {
+    return view('app.pages.settings.roles_permissions');
+})->name('user.roles');
