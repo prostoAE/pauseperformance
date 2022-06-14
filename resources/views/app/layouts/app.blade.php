@@ -412,6 +412,8 @@
 
     @yield('footer')
 
+    @yield('modals')
+
 </div>
 
 <!-- jQuery -->

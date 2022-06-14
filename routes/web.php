@@ -24,3 +24,11 @@ Route::get('/settings/profile', function () {
 Route::get('/settings/roles', function () {
     return view('app.pages.settings.roles_permissions');
 })->name('user.roles');
+
+Route::get('/settings/company', function () {
+    return view('app.pages.settings.company');
+})->name('user.company');
+
+Route::get('/settings/brand_product', function () {
+    return view('app.pages.settings.brand_product');
+})->name('user.brand_product');

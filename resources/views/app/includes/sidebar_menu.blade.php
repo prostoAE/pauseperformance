@@ -34,13 +34,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../mailbox/read-mail.html" class="nav-link">
+                    <a href="{{route('user.company')}}" class="nav-link {{request()->routeIs('user.company') ? 'active' : ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Company Information</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../mailbox/read-mail.html" class="nav-link">
+                    <a href="{{route('user.brand_product')}}" class="nav-link {{request()->routeIs('user.brand_product') ? 'active' : ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Brand and Product</p>
                     </a>
