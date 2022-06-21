@@ -1,13 +1,13 @@
 <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="/" class="nav-link">
                 <i class="nav-icon fas fa-home"></i>
                 <p>Home</p>
             </a>
         </li>
         <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-folder"></i>
                 <p>Activities</p>
             </a>
@@ -58,7 +58,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../mailbox/read-mail.html" class="nav-link">
+                    <a href="{{route('settings.payments')}}" class="nav-link {{request()->routeIs('settings.payments') ? 'active' : ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Payments</p>
                     </a>

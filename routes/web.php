@@ -29,3 +29,7 @@ Route::get('/settings/campaign', function () {
 Route::get('/settings/language', function () {
     return view('app.pages.settings.lanquage');
 })->name('settings.lanquage');
+
+Route::get('/settings/payments', function () {
+    return view('app.pages.settings.payments');
+})->name('settings.payments');
