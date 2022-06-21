@@ -22,37 +22,37 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{route('user.profile')}}" class="nav-link {{request()->routeIs('user.profile') ? 'active' : ''}}">
+                    <a href="{{route('settings.profile')}}" class="nav-link {{request()->routeIs('settings.profile') ? 'active' : ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>User Profile</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('user.roles')}}" class="nav-link  {{request()->routeIs('user.roles') ? 'active' : ''}}">
+                    <a href="{{route('settings.roles')}}" class="nav-link  {{request()->routeIs('settings.roles') ? 'active' : ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Roles and Permissions</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('user.company')}}" class="nav-link {{request()->routeIs('user.company') ? 'active' : ''}}">
+                    <a href="{{route('settings.company')}}" class="nav-link {{request()->routeIs('settings.company') ? 'active' : ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Company Information</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('user.brand_product')}}" class="nav-link {{request()->routeIs('user.brand_product') ? 'active' : ''}}">
+                    <a href="{{route('settings.brand_product')}}" class="nav-link {{request()->routeIs('settings.brand_product') ? 'active' : ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Brand and Product</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../mailbox/read-mail.html" class="nav-link">
+                    <a href="{{route('settings.campaign')}}" class="nav-link {{request()->routeIs('settings.campaign') ? 'active' : ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Campaign</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="../mailbox/read-mail.html" class="nav-link">
+                    <a href="{{route('settings.lanquage')}}" class="nav-link {{request()->routeIs('settings.lanquage') ? 'active' : ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Lanquage</p>
                     </a>
