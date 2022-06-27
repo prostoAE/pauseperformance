@@ -15,13 +15,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Fixed Layout</h1>
+                        <h1>Home</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Layout</a></li>
-                            <li class="breadcrumb-item active">Fixed Layout</li>
+                            <li class="breadcrumb-item active">User Profile</li>
                         </ol>
                     </div>
                 </div>
@@ -30,37 +29,81 @@
 
         <!-- Main content -->
         <section class="content">
-
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12">
-                        <!-- Default box -->
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Title</h3>
-
-                                <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
+                                <h3 class="card-title mb-0">Info</h3>
                             </div>
                             <div class="card-body">
-                                Start creating your amazing application!
-                            </div>
-                            <!-- /.card-body -->
-                            <div class="card-footer">
-                                Footer
-                            </div>
-                            <!-- /.card-footer-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card card-outline card-primary">
+                                            <div class="card-header">
+                                                <h3 class="card-title">All Plan view</h3>
+
+                                                <div class="card-tools">
+                                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+                                                </div>
+                                                <!-- /.card-tools -->
+                                            </div>
+                                            <!-- /.card-header -->
+                                            <div class="card-body">
+                                                <table class="table table-hover">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td><img src="{{asset('img/free-icon.svg')}}" style="width:65px;" class="img-thumbnail" alt="icon"></td>
+                                                        <td>
+                                                            <p class="m-0">Plan 1</p>
+                                                            <p class="m-0">Jun 14, 2022 - Jun 22, 2022</p>
+                                                        </td>
+                                                        <td class="text-center align-middle">
+                                                            <a href="#"><i class="fas fa-edit text-green"></i></a>
+                                                        </td>
+                                                        <td class="text-center align-middle">
+                                                            <a href="#"><i class="fas fa-copy text-green"></i></a>
+                                                        </td>
+                                                        <td class="text-center align-middle">
+                                                            <a href="#"><i class="fas fa-trash text-green"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><img src="{{asset('img/free-icon.svg')}}" style="width:65px;" class="img-thumbnail" alt="icon"></td>
+                                                        <td>
+                                                            <p class="m-0">Plan 2</p>
+                                                            <p class="m-0">Jun 14, 2022 - Jun 22, 2022</p>
+                                                        </td>
+                                                        <td class="text-center align-middle">
+                                                            <a href="#"><i class="fas fa-edit text-green"></i></a>
+                                                        </td>
+                                                        <td class="text-center align-middle">
+                                                            <a href="#"><i class="fas fa-copy text-green"></i></a>
+                                                        </td>
+                                                        <td class="text-center align-middle">
+                                                            <a href="#"><i class="fas fa-trash text-green"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- /.card-body -->
+                                        </div>
+                                        <!-- /.card -->
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+                            </div><!-- /.card-body -->
                         </div>
                         <!-- /.card -->
                     </div>
+                    <!-- /.col -->
                 </div>
-            </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
         </section>
         <!-- /.content -->
     </div>
