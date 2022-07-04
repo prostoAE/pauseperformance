@@ -52,4 +52,24 @@
             </a>
         </li>
     </ul>
+
+    <ul class="navbar-nav">
+        <!-- Authentication Links -->
+        @guest
+            <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+            <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
+        @else
+            <li class="nav-item dropdown">
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </li>
+        @endguest
+    </ul>
 </nav>

@@ -1,10 +1,18 @@
 <?php
 
+use App\Http\Controllers\Auth\NetworkController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/', function () {
     return view('app.home');
-});
+})->name('home');
+
+Auth::routes();
+
+Route::get('/login/{network}', [NetworkController::class, 'redirect'])->name('login.network');
+Route::get('/login/{network}/callback', [NetworkController::class, 'callback']);
 
 Route::get('/settings/profile', function () {
     return view('app.pages.settings.profile');
