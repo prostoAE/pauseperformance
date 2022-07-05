@@ -27,7 +27,7 @@ class NetworkController extends Controller {
                 return redirect()->intended();
             }
 
-            if ($data->getEmail() && $user->exists()) {
+            if ($data->getEmail() && !is_null($user) && $user->exists()) {
                 throw new \DomainException('User with this email is already registered.');
             }
 
