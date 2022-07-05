@@ -29,6 +29,7 @@ class User extends Authenticatable {
         'password',
         'company_name',
         'role',
+        'avatar',
     ];
 
     /**
@@ -65,10 +66,8 @@ class User extends Authenticatable {
             'email' => $data->getEmail(),
             'password' => Hash::make('secret'),
             'role' => self::ROLE_VIEWER,
+            'avatar' => $data->getAvatar()
         ]);
-
-        $user->avatar = $data->getAvatar();
-        $user->save();
 
         return $user;
     }
