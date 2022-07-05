@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Socialite\Facades\Socialite;
 
 class User extends Authenticatable {
     use HasApiTokens, HasFactory, Notifiable;
@@ -55,6 +56,21 @@ class User extends Authenticatable {
             'email' => $email,
             'password' => Hash::make($password),
         ]);
+    }
+
+    public static function registerByNetwork(string $network, \Laravel\Socialite\Two\User $data) {
+
+        $user = static::create([
+            'name' => $data->getName(),
+            'email' => $data->getEmail(),
+            'password' => Hash::make('secret'),
+            'role' => self::ROLE_VIEWER,
+        ]);
+
+        $user->avatar = $data->getAvatar();
+        $user->save();
+
+        return $user;
     }
 
 }

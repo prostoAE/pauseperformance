@@ -103,7 +103,7 @@
                     </a>
                 </div>
 
-                <a href="login.html" class="text-center">Have an account? Sign In</a>
+                <a href="{{route('login')}}" class="text-center">Have an account? Sign In</a>
             </div>
             <!-- /.form-box -->
         </div><!-- /.card -->
