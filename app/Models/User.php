@@ -27,9 +27,13 @@ class User extends Authenticatable {
         'name',
         'email',
         'password',
-        'company_name',
+        'first_name',
+        'last_name',
+        'birthday',
+        'contact_number',
         'role',
         'avatar',
+        'gender',
     ];
 
     /**
@@ -56,6 +60,12 @@ class User extends Authenticatable {
             'name' => $name,
             'email' => $email,
             'password' => Hash::make($password),
+            'first_name' => null,
+            'last_name' => null,
+            'birthday' => null,
+            'contact_number' => null,
+            'role' => self::ROLE_VIEWER,
+            'avatar' => '',
         ]);
     }
 
@@ -65,6 +75,11 @@ class User extends Authenticatable {
             'name' => $data->getName(),
             'email' => $data->getEmail(),
             'password' => Hash::make('secret'),
+            'first_name' => null,
+            'last_name' => null,
+            'birthday' => null,
+            'contact_number' => null,
+            'gender' => null,
             'role' => self::ROLE_VIEWER,
             'avatar' => $data->getAvatar()
         ]);

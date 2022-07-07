@@ -8,6 +8,8 @@
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
+                @include('app.includes.flash')
+
                 <p class="login-box-msg">Sign in to start your session</p>
 
                 <form action="{{ route('login') }}" method="post">

@@ -21,12 +21,14 @@
                 </p>
             </a>
             <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="{{route('settings.profile')}}" class="nav-link {{request()->routeIs('settings.profile') ? 'active' : ''}}">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
+                @auth
+                    <li class="nav-item">
+                        <a href="{{route('profile.edit', Auth::user()->id)}}" class="nav-link {{request()->routeIs('settings.profile') ? 'active' : ''}}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>User Profile</p>
+                        </a>
+                    </li>
+                @endauth
                 <li class="nav-item">
                     <a href="{{route('settings.roles')}}" class="nav-link  {{request()->routeIs('settings.roles') ? 'active' : ''}}">
                         <i class="far fa-circle nav-icon"></i>

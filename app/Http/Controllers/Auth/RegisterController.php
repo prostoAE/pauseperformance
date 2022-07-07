@@ -20,7 +20,7 @@ class RegisterController extends Controller {
         User::register(
             $request['name'],
             $request['email'],
-            $request['password']
+            $request['password'],
         );
 
         return redirect()->route('settings.profile')->with('success', 'Check your email and click on the link to verify.');

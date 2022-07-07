@@ -408,8 +408,6 @@
 
     @yield('sidebar')
 
-    @include('app.includes.flash')
-
     @yield('content')
 
     @yield('footer')

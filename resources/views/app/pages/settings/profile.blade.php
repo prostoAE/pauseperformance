@@ -37,12 +37,14 @@
                         <div class="card card-primary card-outline">
                             <div class="card-body box-profile">
                                 <div class="text-center">
-                                    <img class="profile-user-img img-fluid img-circle"
-                                         src="{{asset('img/user4-128x128.jpg')}}"
-                                         alt="User profile picture">
+                                    @if(Auth::user()->avatar)
+                                        <img class="profile-user-img img-fluid img-circle"
+                                             src="{{Auth::user()->avatar}}"
+                                             alt="User profile picture">
+                                    @endif
                                 </div>
 
-                                <h3 class="profile-username text-center">Nina Mcintire</h3>
+                                <h3 class="profile-username text-center">{{Auth::user()->name}}</h3>
 
                             </div>
                             <!-- /.card-body -->
@@ -58,20 +60,25 @@
                             <div class="card-body">
                                 <div class="tab-content">
                                     <div class="tab-pane active tab-pane" id="settings">
-                                        <form class="form-horizontal">
+                                        @include('app.includes.flash')
+
+                                        <form action="{{route('profile.update', Auth::user()->id)}}" class="form-horizontal" method="post" enctype="multipart/form-data">
+                                            @method('PATCH')
+                                            @csrf
+
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <!-- text input -->
                                                     <div class="form-group">
                                                         <label>First name</label>
-                                                        <input type="text" class="form-control" placeholder="Enter ...">
+                                                        <input type="text" name="first_name" value="{{Auth::user()->first_name}}" class="form-control" placeholder="Enter ...">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <!-- text input -->
                                                     <div class="form-group">
                                                         <label>Last name</label>
-                                                        <input type="text" class="form-control" placeholder="Enter ...">
+                                                        <input type="text" name="last_name" value="{{Auth::user()->last_name}}" class="form-control" placeholder="Enter ...">
                                                     </div>
                                                 </div>
                                             </div>
@@ -81,7 +88,7 @@
                                                     <div class="form-group">
                                                         <label>BirthDay</label>
                                                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate">
+                                                            <input type="text" name="birthday" value="{{Auth::user()->birthday}}" class="form-control datetimepicker-input" data-target="#reservationdate">
                                                             <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                                                 <div class="input-group-text">
                                                                     <i class="far fa-calendar-alt"></i></div>
@@ -93,7 +100,7 @@
                                                     <!-- text input -->
                                                     <div class="form-group">
                                                         <label>Email</label>
-                                                        <input type="email" class="form-control" placeholder="Enter ...">
+                                                        <input type="email" name="email" value="{{Auth::user()->email}}" class="form-control" placeholder="Enter ...">
                                                     </div>
                                                 </div>
                                             </div>
@@ -102,7 +109,7 @@
                                                     <!-- text input -->
                                                     <div class="form-group">
                                                         <label>Contact Number</label>
-                                                        <input type="text" class="form-control" placeholder="Enter ...">
+                                                        <input type="text" name="contact_number" value="{{Auth::user()->contact_number}}" class="form-control" placeholder="Enter ...">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
@@ -110,7 +117,7 @@
                                                         <label for="exampleInputFile">File input</label>
                                                         <div class="input-group">
                                                             <div class="custom-file">
-                                                                <input type="file" class="custom-file-input" id="exampleInputFile">
+                                                                <input type="file" name="avatar" value="{{Auth::user()->avatar}}" class="custom-file-input" id="exampleInputFile">
                                                                 <label class="custom-file-label" for="exampleInputFile">Choose
                                                                     file
                                                                 </label>
@@ -123,11 +130,11 @@
                                                         <div class="form-group">
                                                             <label>Gender</label>
                                                             <div class="form-check">
-                                                                <input class="form-check-input" id="male-chbx" type="radio" name="radio1" checked>
+                                                                <input class="form-check-input" value="male" id="male-chbx" type="radio" name="gender" {{Auth::user()->gender == 'male' ? 'checked' : ''}}>
                                                                 <label class="form-check-label" for="male-chbx">Male</label>
                                                             </div>
                                                             <div class="form-check">
-                                                                <input class="form-check-input" id="female-chbx" type="radio" name="radio1">
+                                                                <input class="form-check-input" value="female" id="female-chbx" type="radio" name="gender" {{Auth::user()->gender == 'female' ? 'checked' : ''}}>
                                                                 <label class="form-check-label" for="female-chbx">Female</label>
                                                             </div>
                                                         </div>

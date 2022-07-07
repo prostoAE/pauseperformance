@@ -10,6 +10,8 @@
             <div class="card-body register-card-body">
                 <p class="login-box-msg">Try Pause Performance free for 30 days</p>
 
+                @include('app.includes.flash')
+
                 <form method="post" action="{{ route('register') }}">
                     @csrf
 

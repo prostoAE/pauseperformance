@@ -1,6 +1,6 @@
 // Date input init
 $('#reservationdate').datetimepicker({
-    format: 'L'
+    format: 'Y-MM-DD'
 });
 
 // Custom input init

@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Auth;
 use DB;
-use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 
 class NetworkController extends Controller {

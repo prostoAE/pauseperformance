@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\NetworkController;
+use App\Http\Controllers\Settings\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,9 +18,11 @@ Route::group([
     'prefix' => 'app',
     'middleware' => ['auth'],
 ], function () {
-    Route::get('/settings/profile', function () {
+    Route::resource('settings/profile', ProfileController::class);
+
+    /*Route::get('/settings/profile', function () {
         return view('app.pages.settings.profile');
-    })->name('settings.profile');
+    })->name('settings.profile');*/
 
     Route::get('/settings/roles', function () {
         return view('app.pages.settings.roles_permissions');
