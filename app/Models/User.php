@@ -55,8 +55,8 @@ class User extends Authenticatable {
         'email_verified_at' => 'datetime',
     ];
 
-    public static function register(string $name, string $email, string $password): self {
-        return static::create([
+    public static function register(string $name, string $email, string $password, string $companyName): self {
+        $user = static::create([
             'name' => $name,
             'email' => $email,
             'password' => Hash::make($password),
@@ -67,6 +67,9 @@ class User extends Authenticatable {
             'role' => self::ROLE_VIEWER,
             'avatar' => '',
         ]);
+        $user->companies()->create(['name' => $companyName]);
+
+        return $user;
     }
 
     public static function registerByNetwork(string $network, \Laravel\Socialite\Two\User $data) {
@@ -83,8 +86,13 @@ class User extends Authenticatable {
             'role' => self::ROLE_VIEWER,
             'avatar' => $data->getAvatar()
         ]);
+        $user->companies()->create();
 
         return $user;
+    }
+
+    public function companies() {
+        return $this->hasOne(Company::class);
     }
 
 }

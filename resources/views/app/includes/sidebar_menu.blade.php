@@ -36,7 +36,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('settings.company')}}" class="nav-link {{request()->routeIs('settings.company') ? 'active' : ''}}">
+                    <a href="{{route('company.edit', Auth::user()->companies)}}" class="nav-link {{request()->routeIs('settings.company') ? 'active' : ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Company Information</p>
                     </a>

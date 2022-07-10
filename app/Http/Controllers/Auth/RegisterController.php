@@ -21,9 +21,10 @@ class RegisterController extends Controller {
             $request['name'],
             $request['email'],
             $request['password'],
+            $request['company_name'],
         );
 
-        return redirect()->route('settings.profile')->with('success', 'Check your email and click on the link to verify.');
+        return redirect()->route('login')->with('success', 'Check your email and click on the link to verify.');
     }
 
 }

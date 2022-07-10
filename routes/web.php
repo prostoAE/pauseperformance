@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\NetworkController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\Settings\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -28,9 +29,10 @@ Route::group([
         return view('app.pages.settings.roles_permissions');
     })->name('settings.roles');
 
-    Route::get('/settings/company', function () {
+    Route::resource('settings/company', CompanyController::class);
+    /*Route::get('/settings/company', function () {
         return view('app.pages.settings.company');
-    })->name('settings.company');
+    })->name('settings.company');*/
 
     Route::get('/settings/brand_product', function () {
         return view('app.pages.settings.brand_product');
