@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CompanyRequest;
 use App\Models\Company;
 use Illuminate\Http\Request;
 
@@ -57,12 +58,26 @@ class CompanyController extends Controller {
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param CompanyRequest $request
      * @param \App\Models\Company $company
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function update(Request $request, Company $company) {
-        //
+    public function update(CompanyRequest $request, Company $company) {
+        $company->update($request->only([
+            'name',
+            'contact_person',
+            'mobile_number',
+            'address',
+            'email',
+            'website_url',
+            'country',
+            'state',
+            'city',
+            'postal_code',
+            'phone_number',
+        ]));
+
+        return redirect()->back()->with('success', 'Company updated');
     }
 
     /**

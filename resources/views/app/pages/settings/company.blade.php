@@ -38,9 +38,11 @@
                             </div>
                             <div class="card-body">
                                 @include('app.includes.flash')
+
                                 <div class="tab-content">
                                     <div class="tab-pane active tab-pane" id="settings">
-                                        <form class="form-horizontal">
+                                        <form action="{{route('company.update', Auth::user()->companies)}}" class="form-horizontal" method="post">
+                                            @method('PATCH')
                                             @csrf
                                             @php /** @var \App\Models\Company $company */ @endphp
                                             <div class="row">
