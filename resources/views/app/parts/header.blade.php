@@ -9,11 +9,17 @@
     <form action="#">
         <div class="row">
             <div class="col-sm-6">
-                <select class="form-control select2 ml-3">
-                    <option selected="selected">Organisation 1</option>
-                    <option>Organisation 2</option>
-                    <option>Organisation 3</option>
-                    <option>Organisation 4</option>
+                <select class="form-control ml-3 form-select" id="single-select-optgroup-field" data-placeholder="Choose one thing">
+                    <option>Organisation 1</option>
+                    <optgroup label="Group 1">
+                        <option>Reactive</option>
+                        <option>Solution</option>
+                        <option>Conglomeration</option>
+                    </optgroup>
+                    <optgroup label="Group 2">
+                        <option>Algoritm</option>
+                        <option>Holistic</option>
+                    </optgroup>
                 </select>
             </div>
             <div class="col-sm-6">

@@ -27,7 +27,7 @@ namespace App\Models{
  * @property string|null $country
  * @property string|null $state
  * @property string|null $city
- * @property int|null $postal_code
+ * @property string|null $postal_code
  * @property string|null $phone_number
  * @property-read \App\Models\User|null $users
  * @method static \Illuminate\Database\Eloquent\Builder|Company newModelQuery()
@@ -50,6 +50,50 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Company whereWebsiteUrl($value)
  */
 	class Company extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Market
+ *
+ * @property int $id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $name
+ * @method static \Illuminate\Database\Eloquent\Builder|Market newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Market newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Market query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Market whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Market whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Market whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Market whereUpdatedAt($value)
+ */
+	class Market extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Organisation
+ *
+ * @property int $id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $name
+ * @property int $user_id
+ * @property string $currency
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Market[] $market
+ * @property-read int|null $market_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Organisation newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Organisation newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Organisation query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Organisation whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Organisation whereCurrency($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Organisation whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Organisation whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Organisation whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Organisation whereUserId($value)
+ */
+	class Organisation extends \Eloquent {}
 }
 
 namespace App\Models{

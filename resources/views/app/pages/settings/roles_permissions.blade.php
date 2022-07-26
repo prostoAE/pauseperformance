@@ -110,20 +110,22 @@
                                             <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Organisation name">
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleSelectBorderWidth2">Select Group</label>
-                                            <select class="custom-select form-control-border border-width-2" id="exampleSelectBorderWidth2">
-                                                <option>Admin</option>
-                                                <option>Editor</option>
-                                                <option>Viewer</option>
-                                            </select>
+                                            <label for="group_org">Select Group</label>
+                                            <input type="text" class="form-control" id="group_org" placeholder="Group">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleSelectBorderWidth2">Markets</label>
-                                            <select class="custom-select form-control-border border-width-2" id="exampleSelectBorderWidth2">
-                                                <option>Admin</option>
-                                                <option>Editor</option>
-                                                <option>Viewer</option>
-                                            </select>
+                                            <div class="select2-purple">
+                                                <select id="exampleSelectBorderWidth2" class="select2" multiple="multiple" data-placeholder="Select Market" data-dropdown-css-class="select2-purple" style="width: 100%;">
+                                                    <option>Alabama</option>
+                                                    <option>Alaska</option>
+                                                    <option>California</option>
+                                                    <option>Delaware</option>
+                                                    <option>Tennessee</option>
+                                                    <option>Texas</option>
+                                                    <option>Washington</option>
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleSelectBorderWidth2">Currency</label>
