@@ -95,4 +95,12 @@ class User extends Authenticatable {
         return $this->hasOne(Company::class);
     }
 
+    public function groups() {
+        return $this->hasMany(Group::class);
+    }
+
+    public function organisation() {
+        return $this->hasMany(Organisation::class);
+    }
+
 }

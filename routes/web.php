@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\NetworkController;
-use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\Settings\CompanyController;
+use App\Http\Controllers\Settings\OrganisationController;
 use App\Http\Controllers\Settings\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -21,13 +22,12 @@ Route::group([
 ], function () {
     Route::resource('settings/profile', ProfileController::class);
 
-    /*Route::get('/settings/profile', function () {
-        return view('app.pages.settings.profile');
-    })->name('settings.profile');*/
+    Route::get('settings/roles', [OrganisationController::class, 'index'])->name('settings.roles');
+    Route::patch('settings/roles/update/{id}', [OrganisationController::class, 'update'])->name('roles.update');
 
-    Route::get('/settings/roles', function () {
+    /*Route::get('/settings/roles', function () {
         return view('app.pages.settings.roles_permissions');
-    })->name('settings.roles');
+    })->name('settings.roles');*/
 
     Route::resource('settings/company', CompanyController::class);
     /*Route::get('/settings/company', function () {

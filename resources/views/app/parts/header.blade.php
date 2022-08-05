@@ -10,8 +10,14 @@
         <div class="row">
             <div class="col-sm-6">
                 <select class="form-control ml-3 form-select" id="single-select-optgroup-field" data-placeholder="Choose one thing">
-                    <option>Organisation 1</option>
-                    <optgroup label="Group 1">
+                    @foreach($organisations as $key => $value)
+                        <optgroup label="{{$key}}">
+                            @foreach($value as $organisation)
+                                <option {{$organisation->active ? "selected" : ""}}>{{$organisation->name}}</option>
+                            @endforeach
+                        </optgroup>
+                    @endforeach
+                    {{--<optgroup label="Group 1">
                         <option>Reactive</option>
                         <option>Solution</option>
                         <option>Conglomeration</option>
@@ -19,7 +25,7 @@
                     <optgroup label="Group 2">
                         <option>Algoritm</option>
                         <option>Holistic</option>
-                    </optgroup>
+                    </optgroup>--}}
                 </select>
             </div>
             <div class="col-sm-6">

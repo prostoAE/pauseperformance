@@ -1,18 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Settings;
 
-use App\Models\Market;
-use App\Http\Requests\StoreMarketRequest;
-use App\Http\Requests\UpdateMarketRequest;
+use App\Http\Controllers\Controller;
+use App\Models\Group;
+use App\Http\Requests\StoreGroupRequest;
+use App\Http\Requests\UpdateGroupRequest;
 
-class MarketController extends Controller {
+class GroupController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index()
+    {
         //
     }
 
@@ -21,58 +24,64 @@ class MarketController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create()
+    {
         //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \App\Http\Requests\StoreMarketRequest $request
+     * @param  \App\Http\Requests\StoreGroupRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMarketRequest $request) {
+    public function store(StoreGroupRequest $request)
+    {
         //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Market $market
+     * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function show(Market $market) {
+    public function show(Group $group)
+    {
         //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Market $market
+     * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function edit(Market $market) {
+    public function edit(Group $group)
+    {
         //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \App\Http\Requests\UpdateMarketRequest $request
-     * @param \App\Models\Market $market
+     * @param  \App\Http\Requests\UpdateGroupRequest  $request
+     * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMarketRequest $request, Market $market) {
+    public function update(UpdateGroupRequest $request, Group $group)
+    {
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Market $market
+     * @param  \App\Models\Group  $group
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Market $market) {
+    public function destroy(Group $group)
+    {
         //
     }
 }

@@ -47,7 +47,7 @@
                                 <p>
                                     <a class="btn" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                                         <i class="fas fa-question-circle"></i>
-                                         Explanation of roles
+                                        Explanation of roles
                                     </a>
                                 </p>
                                 <div class="collapse show" id="collapseExample">
@@ -103,36 +103,43 @@
                             </div>
 
                             <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-edit-org">
-                                <form class="card">
+                                @include('app.includes.flash')
+
+                                <form class="card" action="{{route('roles.update', $organisation->id)}}" method="post">
+                                    @method('PATCH')
+                                    @csrf
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Organisation Name</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Organisation name">
+                                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" value="{{$organisation->name ?: ''}}" placeholder="Organisation name">
                                         </div>
                                         <div class="form-group">
-                                            <label for="group_org">Select Group</label>
-                                            <input type="text" class="form-control" id="group_org" placeholder="Group">
+                                            <label for="group-select">Select Group</label>
+                                            <select name="group_id" class="custom-select form-control-border border-width-2" id="group-select">
+                                                @foreach($groups as $group)
+                                                    <option @selected($organisation->group_id == $group->id) value="{{$group->id ?: ''}}">{{$group->name ?: ''}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleSelectBorderWidth2">Markets</label>
+                                            <label for="select2-market">Markets</label>
                                             <div class="select2-purple">
-                                                <select id="exampleSelectBorderWidth2" class="select2" multiple="multiple" data-placeholder="Select Market" data-dropdown-css-class="select2-purple" style="width: 100%;">
-                                                    <option>Alabama</option>
-                                                    <option>Alaska</option>
-                                                    <option>California</option>
-                                                    <option>Delaware</option>
-                                                    <option>Tennessee</option>
-                                                    <option>Texas</option>
-                                                    <option>Washington</option>
+                                                <select name="markets[]" id="select2-market" class="select2 select2-market" multiple="multiple" data-placeholder="Select Market" data-dropdown-css-class="select2-purple" style="width: 100%;">
+                                                    @if($activeMarkets)
+                                                        @foreach($activeMarkets as $activeMarket)
+                                                            <option selected>{{$activeMarket->name}}</option>
+                                                        @endforeach
+                                                    @endif
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleSelectBorderWidth2">Currency</label>
-                                            <select class="custom-select form-control-border border-width-2" id="exampleSelectBorderWidth2">
-                                                <option>EUR</option>
-                                                <option>USD</option>
-                                                <option>DKK</option>
+                                            <select name="currency" class="custom-select form-control-border border-width-2" id="exampleSelectBorderWidth2">
+                                                @foreach($currencies as $currency)
+                                                    <option @selected($organisation->currency == $currency)
+                                                        value="{{$currency}}">{{Str::upper($currency)}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>

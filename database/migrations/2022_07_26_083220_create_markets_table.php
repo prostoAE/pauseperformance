@@ -13,6 +13,7 @@ return new class extends Migration {
     public function up() {
         Schema::create('markets', function (Blueprint $table) {
             $table->id();
+            $table->integer('organisation_id');
             $table->timestamps();
             $table->string('name')->nullable();
         });

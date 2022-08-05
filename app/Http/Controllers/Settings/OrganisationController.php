@@ -1,10 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Settings;
 
+use App\Http\Controllers\Controller;
+use App\Models\Group;
+use App\Models\Market;
 use App\Models\Organisation;
 use App\Http\Requests\StoreOrganisationRequest;
 use App\Http\Requests\UpdateOrganisationRequest;
+use Doctrine\DBAL\Schema\View;
+use Illuminate\Support\Facades\Auth;
 
 class OrganisationController extends Controller {
     /**
@@ -13,7 +18,12 @@ class OrganisationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //
+        $user = Auth::user();
+        $organisation = $user->organisation()->where('active', '=', true)->first();
+        $groups = $user->groups;
+        $currencies = $organisation::getCurrencyList();
+        $activeMarkets = $organisation->markets;
+        return view('app.pages.settings.roles_permissions', compact('organisation', 'groups', 'user', 'activeMarkets', 'currencies'));
     }
 
     /**
@@ -59,11 +69,33 @@ class OrganisationController extends Controller {
      * Update the specified resource in storage.
      *
      * @param \App\Http\Requests\UpdateOrganisationRequest $request
-     * @param \App\Models\Organisation $organisation
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return void
      */
-    public function update(UpdateOrganisationRequest $request, Organisation $organisation) {
-        //
+    public function update(UpdateOrganisationRequest $request, $id) {
+        $org = Organisation::find($id);
+        $org->update($request->except([
+            '_method',
+            '_token'
+        ]));
+        $markets = $request->has('markets') ? $request->get('markets') : [];
+        $col = $org->markets()->get()->diff(Market::whereIn('name', $markets)->get());
+        Market::destroy($col);
+
+        if (count($markets) > 0) {
+            foreach ($markets as $market) {
+                $cMarket = Market::whereIn('name', [$market])->first();
+
+                if (is_null($cMarket)) {
+                    Market::create([
+                        'name' => $market,
+                        'organisation_id' => $org->id
+                    ]);
+                }
+            }
+        }
+
+        return redirect()->back()->with(['success' => 'Organisation updated', 'form' => 'organisation']);
     }
 
     /**

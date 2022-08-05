@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->foreignId('user_id');
             $table->foreignId('group_id');
             $table->string('currency', 3);
+            $table->boolean('active')->default(false);
         });
     }
 

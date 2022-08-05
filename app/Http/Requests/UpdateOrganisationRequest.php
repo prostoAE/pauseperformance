@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Organisation;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateOrganisationRequest extends FormRequest {
     /**
@@ -11,7 +13,7 @@ class UpdateOrganisationRequest extends FormRequest {
      * @return bool
      */
     public function authorize() {
-        return false;
+        return true;
     }
 
     /**
@@ -20,7 +22,14 @@ class UpdateOrganisationRequest extends FormRequest {
      * @return array<string, mixed>
      */
     public function rules() {
-        return [//
+        return [
+            'name' => 'nullable|string|max:255',
+            'group_id' => 'numeric',
+            'user_id' => 'numeric',
+            'currency' => [
+                'required',
+                Rule::in(Organisation::getCurrencyList())
+            ]
         ];
     }
 }
