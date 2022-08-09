@@ -19,10 +19,15 @@ class OrganisationController extends Controller {
      */
     public function index() {
         $user = Auth::user();
-        $organisation = $user->organisation()->where('active', '=', true)->first();
+        $organisation = $user->organisation()->firstWhere('active', true);
         $groups = $user->groups;
-        $currencies = $organisation::getCurrencyList();
-        $activeMarkets = $organisation->markets;
+        $currencies = Organisation::getCurrencyList();
+        if (!is_null($organisation)) {
+            $activeMarkets = $organisation->markets;
+        } else {
+            $activeMarkets = [];
+        }
+
         return view('app.pages.settings.roles_permissions', compact('organisation', 'groups', 'user', 'activeMarkets', 'currencies'));
     }
 

@@ -54,18 +54,47 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Group
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property string|null $name
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Organisation[] $organisation
+ * @property-read int|null $organisation_count
+ * @property-read \App\Models\User $user
+ * @method static \Database\Factories\GroupFactory factory(...$parameters)
+ * @method static \Illuminate\Database\Eloquent\Builder|Group newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Group newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Group query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Group whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Group whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Group whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Group whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Group whereUserId($value)
+ */
+	class Group extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Market
  *
  * @property int $id
+ * @property int $organisation_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $name
+ * @property-read \App\Models\Organisation|null $organisation
+ * @method static \Database\Factories\MarketFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Market newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Market newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Market query()
  * @method static \Illuminate\Database\Eloquent\Builder|Market whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Market whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Market whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Market whereOrganisationId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Market whereUpdatedAt($value)
  */
 	class Market extends \Eloquent {}
@@ -80,14 +109,21 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $name
  * @property int $user_id
+ * @property int $group_id
  * @property string $currency
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Market[] $market
- * @property-read int|null $market_count
+ * @property int $active
+ * @property-read \App\Models\Group|null $group
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Market[] $markets
+ * @property-read int|null $markets_count
+ * @property-read \App\Models\User $user
+ * @method static \Database\Factories\OrganisationFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|Organisation newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Organisation newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Organisation query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Organisation whereActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Organisation whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Organisation whereCurrency($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Organisation whereGroupId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Organisation whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Organisation whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Organisation whereUpdatedAt($value)
@@ -116,8 +152,12 @@ namespace App\Models{
  * @property string $role
  * @property string|null $avatar
  * @property-read \App\Models\Company|null $companies
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Group[] $groups
+ * @property-read int|null $groups_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Organisation[] $organisation
+ * @property-read int|null $organisation_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Sanctum\PersonalAccessToken[] $tokens
  * @property-read int|null $tokens_count
  * @method static \Database\Factories\UserFactory factory(...$parameters)

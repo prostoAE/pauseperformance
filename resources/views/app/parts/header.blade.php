@@ -6,7 +6,7 @@
         </li>
     </ul>
 
-    <form action="#">
+    <form action="#" class="w-50 mw-100">
         <div class="row">
             <div class="col-sm-6">
                 <select class="form-control ml-3 form-select" id="single-select-optgroup-field" data-placeholder="Choose one thing">
@@ -29,7 +29,7 @@
                 </select>
             </div>
             <div class="col-sm-6">
-                <button type="button" class="btn btn-block btn-outline-primary ml-3">Add New</button>
+                <button type="button" class="btn btn-block btn-outline-primary ml-3">New Organisation</button>
             </div>
         </div>
     </form>

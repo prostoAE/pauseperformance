@@ -104,52 +104,58 @@
 
                             <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-edit-org">
                                 @include('app.includes.flash')
-
-                                <form class="card" action="{{route('roles.update', $organisation->id)}}" method="post">
-                                    @method('PATCH')
-                                    @csrf
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Organisation Name</label>
-                                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" value="{{$organisation->name ?: ''}}" placeholder="Organisation name">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="group-select">Select Group</label>
-                                            <select name="group_id" class="custom-select form-control-border border-width-2" id="group-select">
-                                                @foreach($groups as $group)
-                                                    <option @selected($organisation->group_id == $group->id) value="{{$group->id ?: ''}}">{{$group->name ?: ''}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="select2-market">Markets</label>
-                                            <div class="select2-purple">
-                                                <select name="markets[]" id="select2-market" class="select2 select2-market" multiple="multiple" data-placeholder="Select Market" data-dropdown-css-class="select2-purple" style="width: 100%;">
-                                                    @if($activeMarkets)
-                                                        @foreach($activeMarkets as $activeMarket)
-                                                            <option selected>{{$activeMarket->name}}</option>
-                                                        @endforeach
-                                                    @endif
+                                @if($organisation)
+                                    <form class="card" action="{{route('roles.update', $organisation->id)}}" method="post">
+                                        @method('PATCH')
+                                        @csrf
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Organisation Name</label>
+                                                <input type="text" name="name" class="form-control" id="exampleInputEmail1" value="{{$organisation->name ?: ''}}" placeholder="Organisation name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="group-select">Select Group</label>
+                                                <select name="group_id" class="select2 custom-select form-control-border border-width-2 group-select" id="group-select">
+                                                    @foreach($groups as $group)
+                                                        <option @selected($organisation->group_id == $group->id)
+                                                            value="{{$group->id ?: ''}}">
+                                                            {{$group->name ?: ''}}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="select2-market">Markets</label>
+                                                <div class="select2-purple">
+                                                    <select name="markets[]" id="select2-market" class="select2 select2-market" multiple="multiple" data-placeholder="Select Market" data-dropdown-css-class="select2-purple" style="width: 100%;">
+                                                        @if($activeMarkets)
+                                                            @foreach($activeMarkets as $activeMarket)
+                                                                <option selected>{{$activeMarket->name}}</option>
+                                                            @endforeach
+                                                        @endif
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleSelectBorderWidth2">Currency</label>
+                                                <select name="currency" class="custom-select form-control-border border-width-2" id="exampleSelectBorderWidth2">
+                                                    @foreach($currencies as $currency)
+                                                        <option @selected($organisation->currency == $currency)
+                                                            value="{{$currency}}">{{Str::upper($currency)}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="exampleSelectBorderWidth2">Currency</label>
-                                            <select name="currency" class="custom-select form-control-border border-width-2" id="exampleSelectBorderWidth2">
-                                                @foreach($currencies as $currency)
-                                                    <option @selected($organisation->currency == $currency)
-                                                        value="{{$currency}}">{{Str::upper($currency)}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <!-- /.card-body -->
+                                        <!-- /.card-body -->
 
-                                    <div class="card-footer clearfix">
-                                        <button type="submit" class="btn btn-primary">Update</button>
-                                        <a href="#" class="btn btn-danger float-end">Delete organisation</a>
-                                    </div>
-                                </form>
+                                        <div class="card-footer clearfix">
+                                            <button type="submit" class="btn btn-primary">Update</button>
+                                            <a href="#" class="btn btn-danger float-end">Delete organisation</a>
+                                        </div>
+                                    </form>
+                                @else
+                                    <p>You need to create your first organization</p>
+                                @endif
                             </div>
                         </div>
                     </div>
